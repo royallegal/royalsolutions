@@ -1,0 +1,195 @@
+// ---- CARDS ---- //
+#feed article {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    @media screen and (min-width: $large-screen-up) {
+        padding: 25px;
+    }
+    @media screen and (min-width: $medium-screen-up) and (max-width: $large-screen) {
+        padding: 20px;
+    }
+    @media screen and (max-width: $medium-screen) {
+        padding: 15px;
+    }
+    border: 2px solid #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 1px rgba(0,0,0,.1);
+    .floating-content {
+        width: 100%;
+    }
+
+    // SIZE
+    &.single {
+        min-height: 350px;
+    }
+    &.double:not(.text) {
+        min-height: 600px;
+    }
+
+    // STYLES
+    // Text
+    &.text {
+        justify-content: space-between;
+        h4 a {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        .chip {
+            color: #aaa;
+            &:hover {
+                background-color: color("blue", "accent") !important;
+                color: white;
+                text-shadow: 0 1px 1px rgba(0,0,0,.25);
+            }
+        }
+        .bullet {
+            background-color: #333;
+        }
+    }
+
+    // Shared
+    &.text,
+    &.image,
+    &.video,
+    &.audio {
+        .chip {
+            background: transparent;
+        }
+    }
+
+    &.image,
+    &.video,
+    &.audio {
+        h4 a,
+        p {
+            color: white;
+        }
+        .chip {
+            color: white;
+            &:hover {
+                background-color: white !important;
+                color: color("blue", "accent");
+            }
+        }
+        .categories {
+            .category {
+                color: rgba(255,255,255,.8);
+                transition: .2 ease-out;
+                &:hover {
+                    color: rgba(255,255,255,1);
+                }
+            }
+            .bullet {
+                background-color: rgba(255,255,255,.8);
+            }
+        }
+    }
+
+    // Images
+    &.image {
+        align-items: flex-end;
+        background-size: cover;
+        background-position: center;
+    }
+
+    // Video
+    &.video {
+        align-items: flex-start;
+    }
+
+    // Audio
+    &.audio {
+        align-items: flex-start;
+    }
+
+
+    // CONTENT
+    // Mask
+    .mask {
+        background: linear-gradient(0deg, #2A6EA2 18%, transparent 95%);
+        // opacity: .7;
+    }
+
+    // Title Group
+    .title-group {
+        z-index: 1;
+        position: relative;
+
+        // NEED PLAY BUTTON!!!
+
+        h4 {
+            max-height: 51px;
+            margin-top: 7px;
+            overflow: hidden;
+            font-size: 1.25rem;
+            font-weight: 900;
+            line-height: 1.25;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: .2 ease-out;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .categories {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            a.category {
+                font-size: .85rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                white-space: nowrap;
+            }
+            .bullet {
+                flex-shrink: 0;
+                height: 6px;
+                width: 6px;
+                margin: 0 8px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    // Excerpt
+    p {
+        z-index: 1;
+        position: relative;
+        line-height: 1.75;
+    }
+
+    // Meta Group
+    .meta-group {
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        .chips {
+            margin: 0;
+            padding: 10px 0 5px;
+            border: 0;
+            border-top: 2px solid #ddd;
+            .chip {
+                margin: 0;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: .2s ease-out;
+                i.close {
+                    float: left;
+                    padding: 0 8px 0 0;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

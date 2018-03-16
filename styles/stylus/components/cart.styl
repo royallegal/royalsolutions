@@ -1,0 +1,97 @@
+.woocommerce-cart-form
+  table
+    thead
+      th
+        font-size .9rem
+        font-weight bold
+        text-transform uppercase
+      
+    tbody
+      tr
+        &.bundled_table_item
+          background-color #f7f7f7
+
+      td
+        padding 15px
+
+        &.product-thumbnail
+          img
+            width 75px
+
+        &.product-name
+          .note
+            max-width 215px
+            font-size .9rem
+            color #999
+            line-height 1.33
+          .bundled_table_item,
+          .bundled_table_item_indent
+            padding-left 0
+          dl
+            display flex
+            align-items baseline
+            margin 0
+            dt
+              display none
+            dd
+              margin 0
+
+        &.product-quantity
+          label
+            display none
+          input
+            text-align center
+            max-width 70px
+            padding-left 15px
+
+        &.product-remove
+          a
+            color #f05d5d
+            &:hover
+              color #da4646
+
+  [name="update_cart"]:not(:hover)
+    border-color #DFDFDF !important
+    background-color #DFDFDF !important
+    color #9F9F9F !important
+
+@media (min-width 993px)
+  .woocommerce-cart-form
+    table
+      thead, tbody
+        .product-price,
+        .product-quantity,
+        .product-subtotal,
+        .product-remove
+          text-align center
+      tbody
+        .product-remove
+          span
+            display none
+
+@media (max-width 992px)
+  .woocommerce-cart-form
+    table
+      thead
+        th
+          padding 16px 0
+          &.product-name
+            margin-top 110px
+      tbody
+        .product-quantity
+          input[type="number"]
+            max-width 70px
+            height 20px
+            margin 0
+        .product-remove
+          i
+            display none
+
+@media (max-width 420px)
+  .woocommerce-cart-form
+    .btn-flat
+      text-align center
+      width 100%
+      margin 2.5px 0
+
+

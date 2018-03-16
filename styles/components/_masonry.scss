@@ -1,0 +1,37 @@
+// Remove a column to make room for the sidebar
+.sidebar-open {
+    .masonry {
+        @media screen and (min-width: $large-screen-up) {
+            column-count: 2;
+        }
+        @media screen and (min-width: $medium-screen-up) and (max-width: $large-screen) {
+            column-count: 1;
+        }
+    }
+}
+
+
+.masonry {
+    column-gap: 0;
+    @media screen and (min-width: $large-screen-up) {
+        column-count: 3;
+    }
+    @media screen and (min-width: $medium-screen-up) and (max-width: $large-screen) {
+        column-count: 2;
+    }
+    @media screen and (max-width: $medium-screen) {
+        column-count: 1;
+    }
+    width: 100%;
+    padding: 0 2.5px;
+
+    .mortar {
+        break-inside: avoid;
+        padding: 7.5px 5px;
+
+        .brick {
+            box-sizing: border-box;
+        }
+    }
+
+}

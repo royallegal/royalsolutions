@@ -1,0 +1,26 @@
+// ---- FLIP ---- //
+.flip
+  perspective 1000px
+
+  // Rotation Axis
+  .flipper
+    position relative
+    transition .6s
+    transform-style preserve-3d
+    &.rotate
+      transform rotateY(180deg)
+
+  // Card Faces
+  .front,
+  .back
+    position absolute
+    top 0
+    left 0
+    right 0
+    width 100%
+    backface-visibility hidden
+  .front
+    z-index 2
+    transform rotateY(0deg)
+  .back
+    transform rotateY(180deg)

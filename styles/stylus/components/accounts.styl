@@ -1,0 +1,203 @@
+// ==== MENU ---- //
+.my-account
+  .woocommerce
+    display flex
+    ul.woocommerce-accounts-list
+      min-width 200px
+      margin-right 30px
+      li
+        padding 5px 12px
+        a
+          font-size .8rem
+          font-weight bold
+          color #bbb
+          text-transform uppercase
+          letter-spacing .5px
+        &:hover
+          background-color #f7f7f7
+          a
+            color $linkcolor
+
+
+
+
+// ---- LOGIN ---- //
+.page-id-545
+  .flip
+    height 465px
+#login,
+#register
+  border 0
+  box-shadow none
+  h3
+    margin 0 0 25px
+  p
+    margin 10px 0 0
+    line-height 1
+  .password-reset,
+  [data-id="register"],
+  [data-id="login"]
+    cursor pointer
+  [data-id="register"]
+    color $lightblue
+    &:hover
+      color $linkhighlight
+
+
+// ---- ACCOUNT TABS ---- //
+[id$="tab"]
+  margin-top 75px
+
+
+// ---- CARDS ---- //
+.woocommerce
+  .cards.row
+    display flex
+    flex-wrap wrap
+    .col
+      margin 0
+      padding 0
+      .card
+        display flex
+        flex-wrap wrap
+        align-content space-between
+        height calc(100% - 10px)
+        margin 5px
+        .tooltipped
+          position absolute
+          top 8px
+          right 8px
+          .status
+            height 13px
+            width 13px
+            border-radius 100%
+            transition 250 ease-in-out
+        .card-content
+          flex-basis 100%
+          padding 18px
+          .card-title
+            display flex
+            align-items center
+            margin 0
+            font-size 1.15rem
+            font-weight 900
+            line-height 1.33
+            i
+              margin-right 8px
+            a
+              color #444
+          p
+            color #999
+        .card-action
+          flex-basis 100%
+          padding 6px 18px
+          a
+            margin 0
+            color $linkcolor
+            text-transform none
+            &:hover
+              color $blue
+
+.incomplete
+  .status
+    border 2px solid rgb(243, 135, 135)
+    background-color rgb(247, 174, 174)
+
+.complete
+  .status
+    border 2px solid rgb(173, 234, 163)
+    background-color rgb(209, 246, 209)
+
+
+// ---- DIVIDERS ---- //
+.woocommerce
+  #profile-tab,
+  #purchases-tab,
+  #subscriptions-tab
+    h3
+      margin 0
+    .divider
+      &.top
+        margin 10px 0
+      &.bottom
+        margin 25px 0 10px
+    form
+      .top.divider
+        margin-bottom 25px
+
+
+// ---- FORM FIELDS ---- //
+.woocommerce
+  #profile-tab,
+  #purchases-tab,
+  #subscriptions-tab
+    form
+      .switch
+        .gender.lever
+          background-color rgba(68, 151, 196, 0.5)
+          &:after
+            background-color rgba(68, 151, 196, 1)
+        input[type="checkbox"]:checked
+          + .gender.lever
+            background-color rgba(255, 95, 95, 0.5)
+            &:after
+              background-color rgba(255, 95, 95, 1)
+      .picker__footer
+        button
+          margin 2.5px
+          border-color $linkcolor
+          background-color transparent
+          color $linkcolor
+          &:hover
+            background-color $linkcolor
+            color white
+          &.picker__clear
+            border-color $red
+            color $red
+            &:hover
+              background-color $red
+              color white
+      .picker__day--infocus
+        padding 13px
+      .ssn-group
+        display flex
+        align-items baseline
+        input
+          width 75px
+          margin 0 1rem 1rem
+          &:first-child
+            margin-left 0
+          &:last-child
+            margin-right 0
+
+
+// PURCHASES
+#purchases-tab
+  section.purchase-orders
+    table
+      thead
+        th
+          &:last-child
+            text-align center
+
+      tbody
+        tr.completed.order
+          td.order-actions
+            text-align center
+        tr.order-forms-row
+          border 2px solid #eee
+          background #f7f7f7
+          td
+            padding 15px 30px
+
+
+// SUBSCRIPTIONS
+#subscriptions-tab
+  #subscription-dates
+    p
+      margin-top 5px
+      margin-bottom 0
+      font-size .9rem
+
+
+

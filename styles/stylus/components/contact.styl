@@ -1,0 +1,55 @@
+main#contact
+  position relative
+  background-size cover
+  background-position center
+  .mask
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    background-color #273d4f
+    opacity .85
+  .container
+    z-index 1
+    position relative
+    max-width 1200px
+    padding 75px 0
+    > div,
+    form
+      margin 25px 0
+    > div
+      h3
+        margin-top 0
+        font-size 1.33rem
+      address
+        font-style normal
+        a
+          color white
+          &:hover
+            text-decoration underline
+        p
+          margin 0
+    form
+      padding 25px
+      border-radius 5px
+      background-color #f7f7f7
+      .quote
+        margin -10px 0 10px
+        padding 15px
+        p
+          font-size 1rem
+          line-height 1.4
+          letter-spacing 0
+      #submit-status
+        display flex
+        p
+          margin-left 20px
+          color #999
+
+// @media (min-width 783px) and (max-width 992px)
+//   main#contact
+//     margin-top -32px
+// @media (max-width 782px)
+//   main#contact
+//     margin-top -45px

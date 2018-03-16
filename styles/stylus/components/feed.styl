@@ -1,0 +1,155 @@
+main#feed
+  padding-top 25px
+  &.container
+    max-width 1250px
+  &.filter
+    article
+      display none
+
+@media (min-width 1373px)
+  main#feed.container
+    // max-width 1250px
+    .card-container
+      flex-basis 25%
+@media (min-width 1034px) and (max-width 1372px)
+  main#feed.container
+    // max-width 945px
+    .card-container
+      flex-basis calc(100% / 3)
+@media (min-width 730px) and (max-width 1033px)
+  main#feed.container
+    // max-width 640px
+    .card-container
+      flex-basis 50%
+@media (max-width 729px)
+  main#feed.container
+    width 95%
+    max-width none
+    .card-container
+      flex-basis 100%
+
+
+// ---- CONTROLS ---- //
+main#feed
+  .controls
+    display flex
+    align-items center
+    height 50px
+    margin 0 3px
+    border 2px solid #eee
+    box-shadow 0 1px 3px rgba(0,0,0,.05)
+    form.search,
+    input#search,
+    i.material-icons
+      line-height 50px
+
+    form.search
+      display flex
+      align-items center
+      flex-grow 1
+      position relative
+      input#search
+        position absolute
+        left 0
+        width calc(100% - 45px)
+        margin 0
+        padding-left 45px
+        border 0
+        box-shadow none
+      i.material-icons
+        margin 0 5px 0 8px
+        font-size 1.75rem
+        color #ccc
+
+    a.dropdown-button
+      margin-bottom -1px
+      margin-right -2px
+      padding 0 24px
+      border 2px solid #eee
+      background-color #f5f5f5
+      font-size .8rem
+      font-weight 900
+      color #c5c5c5
+      letter-spacing 1px
+      line-height 47px
+      text-transform uppercase
+      &:hover
+        border-color $linkcolor
+        background-color $linkcolor
+        color white
+
+    ul.autocomplete-content
+      position absolute
+      top 70px
+      left 0
+      width 100%
+
+    ul#category-dropdown
+      box-shadow 0 2px 5px 0 rgba(0,0,0,.5)
+      li
+        &:hover
+          background-color $linkcolor
+        a
+          padding 12px 24px
+          font-size .8rem
+          font-weight 900
+          color #999
+          text-transform uppercase
+          letter-spacing 1px
+        &:hover
+          a
+            color white
+        
+
+
+// ---- CONTENT AREA ---- //
+main#feed
+  .content
+    display flex
+    flex-wrap wrap
+    justify-content center
+    .card-container
+      flex-grow 1
+      padding 4px
+      article.card
+        height 100%
+        margin 5px auto
+        border 1px solid #e5e5e5
+
+
+// --- NO RESULTS ---- //
+main#feed
+  .content
+    #no-results
+      .target
+        padding 2px 12px 6px
+        background-color #e3aaa3
+        color white
+        text-shadow 0 1px 5px rgba(0,0,0,.15)
+
+
+// ---- CARDS ---- //
+main#feed
+  article.card
+    .card-title
+      text-align center
+      margin-bottom 15px
+      a
+        font-size 1.25rem
+        font-weight 900
+        color rgba(0,0,0,.8)
+        letter-spacing 1px
+        line-height 1
+        text-transform capitalize
+        &:hover
+          text-decoration underline
+
+    .card-content
+      padding-bottom 65px
+      p
+        font-size 1rem
+      .read-more
+        position absolute
+        bottom 18px
+        left 0
+        width 100%

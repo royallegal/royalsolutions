@@ -1,0 +1,112 @@
+// ---- NOTIFICATIONS ---- //
+#product
+  .onsale
+    position absolute
+    top 15px
+    font-weight 900
+    color white
+
+@media (min-width 568px)
+  #product
+    .onsale
+      left 10px
+      font-size 2rem
+      transform rotate(-30deg)
+@media (max-width 567px)
+  #product
+    .onsale
+      text-align center
+      left 0
+      right 0
+      font-size 1.5rem
+      text-transform uppercase
+
+
+// ---- BANNER ---- //
+.live
+  #product
+    .banner
+      form
+        display none
+
+#product
+  .product
+    .panel:first-of-type
+      h1
+        display block
+        margin 0 auto 15px
+        color white
+        text-shadow 0 1px 1px rgba(0,0,0,.2)
+        line-height 1
+      p
+        display none
+
+      form
+        margin auto
+        .quantity
+          width 300px
+          max-width 90vw
+          margin auto
+          label
+            display none
+          input
+            text-align center
+            margin 0
+            border-bottom 2px solid white
+            color white
+            &:focus
+              border-color white
+              box-shadow none
+        table.variations
+          width auto
+          margin auto
+
+      td.label
+        display none
+      td.value
+        display flex
+        align-items center
+        padding 0
+        max-width 90vw
+        .select-wrapper
+          width 300px
+          input
+            margin 0
+            border-bottom 2px solid white
+            &:focus
+              border-color white
+              box-shadow none
+          input,
+          .caret
+            color white
+        a.reset_variations
+          display none !important
+
+      .woocommerce-variation.single_variation
+        display none !important
+
+      .btn-flat
+        width 300px
+        max-width 90vw
+        margin-top 8px
+        border-color white
+        background-color transparent
+        color white
+        &:hover
+          background-color white
+          color #4497C4
+        &.disabled
+          border-color #DFDFDF !important
+          background-color #DFDFDF !important
+          color #9F9F9F !important
+
+      .product_meta
+        display none
+
+
+// ---- DESCRIPTION ---- //
+#product
+  .container
+    padding 50px 0
+        
+        

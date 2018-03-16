@@ -1,0 +1,252 @@
+// ---- ADMIN BAR ---- //
+.admin-bar
+  nav
+    ul
+      &.dropdown-content
+        top 77px !important
+
+@media (max-width 992px)
+  #wpadminbar
+    display none
+  nav
+    top 0
+    #categories,
+    #tags
+      top 86px !important
+@media (min-width 993px)
+  .admin-bar
+    nav
+      #categories,
+      #tags
+        top 118px !important
+  nav
+    #categories,
+    #tags
+      top 86px !important
+
+
+// ---- FULL NAV ---- //
+nav
+  max-width 100vw
+  #rls-logo
+    display inline-block
+    float left
+    width 45px
+    margin auto
+    background-image url('https://royallegalsolutions.com/wp-content/uploads/2017/07/cropped-RLS-Favicon-1.png')
+    background-size 26px auto
+    background-position center
+    background-repeat no-repeat
+  #rls-title
+    font-weight bold
+  #mobile-menu
+    float right
+    i
+      font-size 2rem
+  ul
+    &#nav-left,
+    &#nav-right
+      li
+        a
+          &.active
+            color white
+            &:hover
+              color white
+        i.small
+          margin-left 0
+          font-size 1.5rem
+
+@media (max-width 600px)
+  #rls-logo
+    height 56px
+@media (min-width 601px)
+  #rls-logo
+    height 45px
+@media (max-width 992px)
+  #rls-title
+    display inline-block
+@media (min-width 993px)
+  #rls-title
+    display none
+
+// Transparent Nav (Home / Landing Pages)
+nav.transparent
+  background-color transparent
+  box-shadow none
+  #rls-logo
+    background-image url('https://royallegalsolutions.com/wp-content/uploads/2017/05/Layer-2.png')
+    background-size 19px auto
+  #rls-title,
+  #mobile-menu
+    color $lightblue
+  #nav-left,
+  #nav-right
+    > li
+      > a
+        color $lightblue
+        &:hover
+          color #fff
+        &.btn
+          border-color $lightblue
+          &:hover
+            border-color $linkcolor
+            color #fff
+
+nav.no-shadow
+  position absolute
+  box-shadow none
+
+// Extended Nav
+$tabH = 40px;
+nav.nav-extended
+  .nav-content
+    .indicator
+      background-color transparent
+      border-bottom 3px solid #4497c4
+    ul
+      height $tabH
+      background-color #f8f8f8
+      li
+        height $tabH
+        line-height $tabH
+        a
+          height $tabH
+          font-weight normal
+          color #aaa
+          text-transform capitalize
+        &:not(.tab)
+          a.active
+            color white
+        i
+          height $tabH
+          line-height $tabH
+
+
+// ---- DROPDOWNS ---- //
+nav
+  ul.dropdown-content
+    position fixed !important
+    top 45px !important
+    left 0px !important
+    right 0px !important
+    // border 1px solid #ddd
+    background-color #f7f7f7
+    box-shadow 0 2px 5px 1px rgba(0,0,0,.15)
+    &#tags
+      direction rtl
+    &#categories,
+    &#tags
+      li
+        a
+          font-weight normal
+          color #777
+
+    .flex
+      display flex !important
+      margin 0 auto
+      padding 20px 10px
+
+      > div
+        flex-basis 20%
+        border 1px solid #eee
+        border-top 0
+        border-bottom 0
+        &:first-child
+          border-left 0
+        &:last-child
+          border-right 0
+
+        div
+          padding 0 10px
+          &.heading
+            padding 10px 22px
+            font-size 12px
+            font-weight bold
+            color #aaa
+            line-height 1
+            letter-spacing .5px
+            text-transform uppercase
+            cursor default
+          a
+            font-size 13px
+            font-weight normal
+            color #000
+            line-height 40px
+
+          &:not(.promotions)
+            &:hover:not(.heading)
+              a
+                font-weight bold
+                color white
+
+        &.llcs
+          div
+            &:hover:not(.heading)
+              background-color #4092d0
+        &.trusts
+          div
+            &:hover:not(.heading)
+              background-color #c2924c
+        &.agreements
+          div
+            &:hover:not(.heading)
+              background-color #65a169
+        &.plans
+          div
+            &:hover:not(.heading)
+              background-color #886ba7
+        &.recommendations
+          div
+            &:hover:not(.heading)
+              background-color #fb6c6c
+
+
+// ---- MODILE SIDEBAR ---- //
+ul.side-nav
+  .background
+    .overlay
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+      background-color #11334e
+      opacity .6
+  #sidebar-logo
+    display flex
+    img
+      width 80%
+      margin auto
+  .collapsible-header
+    padding 0 32px
+    font-weight 500
+  .collapsible-body
+    li
+      a
+        height 42px
+        margin-left 10px
+        font-size 14px
+        color #777
+        line-height 42px
+  li
+    a
+      i.left
+        margin 0 8px 0 -1px
+        font-size 1.33rem
+        color #999
+
+// Alignment Fix
+#sidebar-user-account,
+#user-account
+  a
+    display inline-block
+    &#username
+      padding-right 0
+    &#logout
+      padding-left 0
+
+#logout,
+#cart-count
+  font-size 13px
+  font-weight 500
+  text-transform lowercase

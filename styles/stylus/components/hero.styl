@@ -1,0 +1,125 @@
+// .admin-bar
+//   .hero-container
+//     margin-top -93px
+
+body.home .hero-container
+  align-content center
+  justify-content center
+  flex-wrap wrap
+  height 80vh
+  min-height 300px
+  // width 90%
+  // max-width 800px
+  margin -61px auto 0
+  .hero,
+  .mask
+    z-index -1
+    position absolute
+    top 0
+    left 0
+    height 80vh
+    min-height 300px
+    width 100%
+  .mask
+    opacity .6
+    &.blue
+      background-color #11334e !important
+
+@media (min-width 769px)
+  body.home .hero
+    background-size 150%
+    background-position left 40%
+@media (max-width 768px)
+  body.home .hero
+    background-size 225%
+    background-position 33% 40%
+
+
+// ---- TEXT ---- //
+body.home .hero-container
+  .caption
+    flex-basis 100%
+    h1
+      max-width 800px
+      margin 0 auto
+      letter-spacing 1px
+      line-height 1.15
+    h2
+      max-width 800px
+      margin 10px auto !important
+      font-weight normal
+      line-height 1.25
+      
+    &.light
+      h1,
+      h2
+        color white
+        text-shadow 0 5px 3px rgba(0,0,0,.25)
+
+@media (min-width 878px)
+  body.home .hero-container
+    .caption
+      margin 25px auto
+      h1
+        font-size 2.5rem
+      h2
+        margin 0
+        font-size 1.75rem
+@media (min-width 737px) and (max-width 877px)
+  body.home .hero-container
+    .caption
+      margin 25px auto
+      h1
+        font-size 2.4rem
+      h2
+        margin 5px 0
+        font-size 1.7rem
+@media (min-width 375px) and (max-width 736px)
+  body.home .hero-container
+    .caption
+      margin 15px auto
+      h1
+        font-size 2.25rem
+      h2
+        margin 15px 0
+        font-size 1.5rem
+@media (max-width 374px)
+  .hero-container
+    .caption
+      margin 5px auto
+      h1
+        font-size 1.75rem
+      h2
+        margin 15px 0
+        font-size 1.25rem
+
+
+// ---- BUTTONS ---- //
+body.home .hero-container
+  .button-group
+    .btn
+      height 44px
+      margin 4px 0
+      padding 4px 2rem
+      font-weight 900
+      text-shadow 0 1px 1px rgba(0,0,0,.15)
+      &.ghost
+        background-color rgba(0,0,0,.15)
+        &:hover
+          background-color $linkcolor
+
+
+@media (min-width 601px)
+  body.home .hero-container .button-group
+    .btn
+      font-size 1rem
+@media (min-width 375px) and (max-width 600px)
+  body.home .hero-container .button-group
+    .btn
+      width 246px
+      font-size .9rem
+@media (max-width 374px)
+  body.home .hero-container .button-group
+    .btn
+      width 230px
+      font-size .85rem

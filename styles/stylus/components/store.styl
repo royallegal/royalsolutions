@@ -1,0 +1,90 @@
+// // ---- SECTIONS ---- //
+main#store
+  .container
+    display flex
+    flex-wrap wrap
+    width 100%
+    max-width none
+    margin auto
+
+
+// ---- PRODUCTS ---- //
+main#store
+  .product
+    margin 2.5px
+    padding 25px
+    // background: linear-gradient(-25deg,  rgba(0,0,0,0.075) 0%,rgba(119,119,119,0) 50%,rgba(255,255,255,0.075) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    transition .15s ease-in-out
+    &.llc
+      background-color $blue
+    &.trust
+      background-color $brown
+    &.agreement
+      background-color $green
+    &.planning
+      background-color $purple
+
+    &:hover
+      box-shadow inset 0 0 0 15px rgba(0,0,0,0.15)
+
+@media (min-width 1200px)
+  main#store
+    .product
+      height calc(20vw - 5px)
+      width calc(20% - 5px)
+
+@media (min-width 993px) and (max-width 1199px)
+  main#store
+    .product
+      height calc(25vw - 5px)
+      width calc(25% - 5px)
+
+@media (min-width 736px) and (max-width 992px)
+  main#store
+    .product
+      height calc((100vw / 3) - 5px)
+      width calc((100% / 3) - 5px)
+
+@media (min-width 568px) and (max-width 735px)
+  main#store
+    .product
+      height calc(50vw - 5px)
+      width calc(50% - 5px)
+
+@media (max-width 567px)
+  main#store
+    .product
+      height calc(75vw - 5px)
+      width 100%
+ 
+
+// ---- PRODUCT CONTENT ---- //
+main#store
+  .product
+    a
+      height 100%
+      width 100%
+    .text
+      flex-wrap wrap
+      align-content center
+      height 100%
+      h2,
+      p
+        width 100%
+        margin 0
+        color white
+        text-shadow 0 1px 1px rgba(0,0,0,0.2)
+      h2
+        margin-bottom 3px
+        font-size 1.5rem
+        font-weight 900
+        line-height 1.15
+        letter-spacing 1px
+      p
+        font-size 1.15rem
+
+    &:hover
+      p
+        text-decoration underline
+
+
