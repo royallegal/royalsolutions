@@ -1,6 +1,3 @@
-.DS_Store
-
 node_modules
 
-scripts/scripts.js
-styles/index.css
+testing

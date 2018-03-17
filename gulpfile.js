@@ -11,7 +11,8 @@ const concat = require('gulp-concat');
 const minify = require('gulp-minify');
 // Webpack
 var webpack  = require('webpack');
-var run      = webpack('./webpack.config.js');
+var config   = require('./webpack.config.js');
+var run      = webpack(config);
 
 
 // DEVELOPMENT
