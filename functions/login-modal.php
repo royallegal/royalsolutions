@@ -1,7 +1,15 @@
 <?php
+// Adds the snippet of the modal to the footer hook
+if (!function_exists('login_popup_modal')) {
+    add_action('wp_footer', 'login_popup_modal');
+    function login_popup_modal(){
+        get_template_part("snippets/nav/login-modal");
+    }
+}
+
 /**
- * AJAX LOGIN
- */
+  * AJAX LOGIN
+  */
 add_action('wp_ajax_nopriv_ajax_login', 'ajax_login_callback');
 if (!function_exists('ajax_login_callback')){
     function ajax_login_callback() {

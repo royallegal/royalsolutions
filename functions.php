@@ -4,8 +4,6 @@
 require_once(__DIR__ . '/classes/contact.php');
 require_once(__DIR__ . '/classes/email.php');
 require_once(__DIR__ . '/classes/insightly.php');
-/* require_once(__DIR__ . '/classes/accounts.php');
- * require_once(__DIR__ . '/classes/purchases.php');*/
 
 // Functions
 require_once(__DIR__ . '/functions/global.php');

@@ -13,25 +13,33 @@
 // ---- IMPORT SCRIPTS & STYLES ---- //
 // Global Scripts
 function rls_header_scripts() {
-    // Materialize
-    wp_register_script('materialize', get_template_directory_uri() . '/scripts/lib/materialize/bin/materialize.min.js', array('jquery'), '');
-    wp_enqueue_script('materialize');
-
-    // Masonry
-    wp_register_script('masonryjs', get_template_directory_uri() . '/scripts/lib/masonry.min.js', array('jquery'), '1.0.0'); 
-    wp_enqueue_script('masonryjs');
-
-    // Custom
-    wp_register_script('royal_scripts', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '1.0.0'); 
+    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+        // Conditionizr
+        /* wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0');
+         * wp_enqueue_script('conditionizr');*/
+        // Modernizr
+        /* wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1');
+         * wp_enqueue_script('modernizr');*/
+        // Materialize
+        wp_register_script('materialize', get_template_directory_uri() . '/scripts/lib/materialize/bin/materialize.min.js', array('jquery'), '');
+        wp_enqueue_script('materialize');
+        // Custom
+        wp_register_script('royal_scripts', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '1.0.0'); 
+    }
     wp_enqueue_script('royal_scripts');
 }
 
 // Conditional Scripts
 function rls_conditional_scripts() {
-    // Vue config for documentation page
+    // Vue (documentation page)
     /* if (basename(get_permalink()) == 'documentation') {
      *     wp_enqueue_script( 'vue-documentation', get_template_directory_uri() . '/documentation/dist/js/bundle.js', [], false, true );
      * }*/
+    // Masonry
+    if (basename(get_permalink()) == 'blog') {
+        wp_register_script('masonryjs', get_template_directory_uri() . '/scripts/lib/masonry.min.js', array('jquery'), '1.0.0'); 
+        wp_enqueue_script('masonryjs');
+    }
 }
 
 

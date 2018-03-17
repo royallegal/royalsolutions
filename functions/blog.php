@@ -5,10 +5,21 @@
 
 
 // ---- EXCERPTS ---- //
-// Remove <p> tags
+// Remove <p> tags from excerpts
 remove_filter('the_excerpt', 'wpautop');
+// Remove <p> tags in manual exerpts
 add_filter('rlswp_excerpt', 'shortcode_unautop');
 
+// Text Only Excerpts
+// rls_text_excerpt('rlswp_index')
+function rls_text_excerpt($length) {
+    return 25;
+}
+// Media & Text Excerpts
+// rls_media_excerpt('rlswp_index')
+function rls_media_excerpt($length) {
+    return 25;
+}
 // Excerpt
 function rlswp_excerpt($length_callback = '', $more_callback = '') {
     global $post;
@@ -16,9 +27,9 @@ function rlswp_excerpt($length_callback = '', $more_callback = '') {
     if (function_exists($length_callback)) {
         add_filter('excerpt_length', $length_callback);
     }
-    /* if (function_exists($more_callback)) {
-     *     add_filter('excerpt_more', $more_callback);
-     * }*/
+    if (function_exists($more_callback)) {
+        add_filter('excerpt_more', $more_callback);
+    }
 
     $output = get_the_excerpt();
     $output = apply_filters('wptexturize', $output);
