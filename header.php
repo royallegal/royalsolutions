@@ -20,7 +20,7 @@
     <body <?php body_class(); ?>>
 
         <!-- Google Tags -->
-        <?php if (is_wpe() && function_exists('gtm4wp_the_gtm_tag')) {
+        <?php if (function_exists('gtm4wp_the_gtm_tag')) {
             gtm4wp_the_gtm_tag();
         } ?>
 

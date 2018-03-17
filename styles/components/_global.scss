@@ -27,6 +27,9 @@ main {
     padding-top: 100px;
     background-color: $footer-bg-color;
     color: $footer-font-color;
+    .row {
+        margin-bottom: 0px;
+    }
     .footer-copyright {
         overflow: hidden;
         display: flex;
