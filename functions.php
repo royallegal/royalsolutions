@@ -108,7 +108,9 @@ function register_theme_menus() {
     register_nav_menus(
         array(
             'main-nav'   => 'Main Navigation',
-            'footer-nav' => 'Footer Navigation'
+            'main-right-nav'   => 'Main Right Navigation',
+            'main-mobile-nav'   => 'Main Mobile Navigation',
+            'footer-nav' => 'Footer Navigation',
         )
     );
 }
