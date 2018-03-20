@@ -18,18 +18,12 @@ $items  = $woocommerce->cart->get_cart_contents_count();
             </a>
 
             <!-- Left Menu -->
-            <ul id="nav-left" class="float-left hide-on-med-and-down">
-                <li><a class="dropdown-button"
-                       href="#"
-                       data-activates="services"
-                       data-constrainwidth="false">
-                    Services
-                    <i class="small material-icons right">arrow_drop_down</i>
-                </a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/contact-us">Contact Us</a></li>
-                <li><a href="tel:5127573994">1.512.757.3994</a></li>
-            </ul>
+            <?php wp_nav_menu(array(
+                "theme_location" => "main-nav",
+                "menu_id" => "nav-left",
+                "menu_class"=> "float-left hide-on-med-and-down",
+                'walker' => new Main_Nav_Walker
+            )) ?>
 
             <!-- Right Menu -->
             <?php
@@ -69,39 +63,3 @@ $items  = $woocommerce->cart->get_cart_contents_count();
         </div>
     </nav>
 </div>
-
-
-<ul id="services" class="dropdown-content" data-constrainwidth="false">
-    <div class="service-column recommendations">
-        <div class="service-heading">Recommendations</div>
-        <div class="service-item"><a href="/product/consultation">Consultation (Get $150)</a></div>
-        <div class="service-item"><a href="/product/life-squared/">Life Squared (Save 33%)</a></div>
-        <div class="service-item"><a href="/product/family-office">Family Office Subscription</a></div>
-    </div>
-    <div class="service-column llcs">
-        <div class="service-heading">LLCs</div>
-        <div class="service-item"><a href="/product/series-llc">Series LLC</a></div>
-        <div class="service-item"><a href="/product/traditional-llc">Traditional</a></div>
-        <div class="service-item"><a href="/product/ira-owned-llc">IRA Owned</a></div>
-        <div class="service-item"><a href="/product/assignment-of-interest">Assignment of Interest</a></div>
-        <div class="service-item"><a href="/product/series-document">Series Document</a></div>
-    </div>
-    <div class="service-column trusts">
-        <div class="service-heading">Trusts</div>
-        <div class="service-item"><a href="/product/delaware-statutory-trust/">Delaware Statutory</a></div>
-        <div class="service-item"><a href="/product/anonymous-land-trust">Anonymous Land</a></div>
-        <div class="service-item"><a href="/product/ira-owned-trust">IRA Owned</a></div>
-    </div>
-    <div class="service-column agreements">
-        <div class="service-heading">Agreements</div>
-        <div class="service-item"><a href="/product/limited-partnership">Limited Partnership</a></div>
-        <div class="service-item"><a href="/product/joint-venture">Joint Venture</a></div>
-        <div class="service-item"><a href="/product/property-transfer">Property Transfer</a></div>
-        <div class="service-item"><a href="/product/deed">Deed</a></div>
-    </div>
-    <div class="service-column plans">
-        <div class="service-heading">Strategy</div>
-        <div class="service-item"><a href="/product/estate-planning">Estate Planning</a></div>
-        <div class="service-item"><a href="/product/hourly-consulting">Hourly Consulting</a></div>
-    </div>
-</ul>

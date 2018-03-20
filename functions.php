@@ -12,6 +12,7 @@ require_once(__DIR__ . '/functions/blog.php');
 require_once(__DIR__ . '/functions/files.php');
 require_once(__DIR__ . '/functions/helpers.php');
 require_once(__DIR__ . '/functions/login-modal.php');
+require_once(__DIR__ . '/functions/menus.php');
 require_once(__DIR__ . '/functions/shortcodes.php');
 require_once(__DIR__ . '/functions/widgets.php');
 require_once(__DIR__ . '/functions/woocommerce.php');
@@ -102,6 +103,16 @@ function remove_thumbnail_dimensions($html) {
     return $html;
 }
 
+//Registering navigation menus
+function register_theme_menus() {
+    register_nav_menus(
+        array(
+            'main-nav'   => 'Main Navigation',
+            'footer-nav' => 'Footer Navigation'
+        )
+    );
+}
+
 
 // ---- FILES ---- //
 // Scripts
@@ -151,4 +162,6 @@ add_filter('style_loader_tag', 'rls_style_remove');
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 // Remove width and height dynamic attributes to post images
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
+//Registering navigation menus
+add_action( 'after_setup_theme', 'register_theme_menus' );
 ?>
