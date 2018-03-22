@@ -1,0 +1,9 @@
+<?php
+/* TEXT
+ * Receives variables from ./page.php */
+?>
+
+
+<div class="text">
+    
+</div>

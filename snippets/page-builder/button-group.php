@@ -50,9 +50,9 @@
             $button_title         = $button['button_title'];
             $button_modal         = $button['button_modal'];
         ?>
-            <a class="<?= $button_classes; ?> button"
+            <a class="<?= $button_classes; ?> modal-trigger button"
                style="<?= $button_color_custom ? $button_color_custom : ''; ?>"
-               target="<?= $modal_id; ?>">
+               href="<?= $modal_id; ?>">
                 <i class="material-icons <?= $button_icon_position; ?>">
                     <?= $button_icon; ?>
                 </i>

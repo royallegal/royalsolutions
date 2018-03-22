@@ -79,7 +79,7 @@ global $post;
              * }*/
 
             // Modals
-            $modal_id = 'modal-'.substr(md5(microtime()),rand(0,26),10);
+            $modal_id = '#modal-'.substr(md5(microtime()),rand(0,26),10);
 
             // Child Templates
             $template  = str_replace("component_", "", $name);
