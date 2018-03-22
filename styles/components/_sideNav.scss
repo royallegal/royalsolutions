@@ -96,6 +96,18 @@
             color: rgba(0,0,0,.54);
         }
     }
+    li form button {
+        color: $sidenav-font-color;
+        display: block;
+        font-size: $sidenav-font-size;
+        font-weight: 500;
+        height: $sidenav-item-height;
+        line-height: $sidenav-line-height;
+        padding: 0 ($sidenav-padding * 2); 
+        background: transparent;
+        border: 0;
+    }
+
 
 
     .divider {

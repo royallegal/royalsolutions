@@ -20,8 +20,8 @@ $logout = esc_url(wc_logout_url(wc_get_page_permalink('myaccount')));
     </li>
 
     <?php wp_nav_menu(array(
-        "theme_location" => "main-nav",
-        "menu_id" => "main-mobile-nav",
+        "theme_location" => "main-mobile-nav",
+        "menu_id" => "",
         "menu_class"=> "",
         'walker' => new Main_Mobile_Nav_Walker
     )) ?>

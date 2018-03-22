@@ -63,24 +63,6 @@ class Main_Nav_Walker extends Walker_Nav_Menu {
 class Main_Right_Nav_Walker extends Walker_Nav_Menu {
     function display_element($item, &$children_elements, $max_depth, $depth, $args, &$output) {
         $menu = wp_get_nav_menu_object($args[0]->menu);
-        $display_cart = get_field("display_cart", $menu);
-        $display_account_information = get_field("display_account_information", $menu);
-
-        var_dump($item->menu_order);
-        
-        if($display_cart){
-            ob_start();
-            include(locate_template('snippets/global/cart-nav.php'));
-            $cart_data = ob_get_clean();
-            $output .= $cart_data;
-        }
-        
-        if($display_account_information){
-            ob_start();
-            include(locate_template('snippets/global/account-nav.php'));
-            $account_data = ob_get_clean();
-            $output .= $account_data;
-        }
         if($max_depth == 0){
             $customize_color = get_field("customize_color", $item);
             $button_styles = ""; 
@@ -95,6 +77,7 @@ class Main_Right_Nav_Walker extends Walker_Nav_Menu {
 
     }
 }
+
 
 class Main_Mobile_Nav_Walker extends Walker_Nav_Menu {
     function display_element($item, &$children_elements, $max_depth, $depth, $args, &$output) {
@@ -135,23 +118,6 @@ class Main_Mobile_Nav_Walker extends Walker_Nav_Menu {
             }
             $output .= "</li>";
         }
-        $menu = wp_get_nav_menu_object($args[0]->menu);        
-        $display_cart = get_field("display_cart", $menu);
-        $display_account_information = get_field("display_account_information", $menu);
-        
-        if($display_cart){
-            ob_start();
-            include(locate_template('snippets/global/cart-nav.php'));
-            $cart_data = ob_get_clean();
-            $output .= $cart_data;
-        }
-        
-        if($display_account_information){
-            ob_start();
-            include(locate_template('snippets/global/account-nav.php'));
-            $account_data = ob_get_clean();
-            $output .= $account_data;
-        }
     }
 } 
 
@@ -170,3 +136,33 @@ class Footer_Nav_Walker extends Walker_Nav_Menu {
         } 
     }
 } 
+
+
+//Append cart and account info to menues
+add_filter('wp_nav_menu_items','search_box_function', 10, 2);
+function search_box_function( $nav, $args ) {
+    $locations = array('main-right-nav' , 'main-mobile-nav' );
+    if( in_array($args->theme_location, $locations) ) {
+        $display_cart = get_field("display_cart", $args->menu);
+        $display_account_information = get_field("display_account_information", $args->menu);
+        if($display_cart){
+            ob_start();
+            include(locate_template('snippets/global/cart-nav.php'));
+            $cart_data = ob_get_clean();
+            $append .= $cart_data;
+        }
+        
+        if($display_account_information){
+            ob_start();
+            include(locate_template('snippets/global/account-nav.php'));
+            $account_data = ob_get_clean();
+            $append .= $account_data;
+        }
+        if($args->theme_location === 'main-right-nav'){
+            $nav = $append.$nav;
+        } else if($args->theme_location === 'main-mobile-nav'){
+            $nav .= $append;
+        }
+    }
+    return $nav;
+}
