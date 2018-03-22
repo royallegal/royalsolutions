@@ -5,6 +5,7 @@
     align-items: center;
     align-content: center;
     position: relative;
+    min-height: 500px;
     overflow: hidden;
     &:not([class^="vh-"]) {
         height: 500px;
@@ -23,40 +24,61 @@
 
     // Call to Action Grouping
     .cta-group {
-        // display: flex;
-        // flex-wrap: wrap;
-        // align-items: center;
-        // align-content: center;
-        // justify-content: center;
-        margin: 50px;
-        padding: 25px;
         border-radius: 2px;
         border: none;
+        @media scree and (max-width: 799px) {
+            margin: 10px;
+        }
         @media screen and (min-width: 800px) {
+            margin: 50px;
+            padding: 25px;
             &.floating,
             &.tall {
-                max-width: 50%;
+                max-width: $container-width;
             }
         }
         &.row {
             margin: 0 auto;
         }
+
+        // Sizing
+        &.full,
+        &.tall {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            .title-group,
+            .button-group {
+                flex-basis: 100%;
+            }
+        }
         &.full {
-            height: 100%;
-            width: 100%;
-            margin: 0;
+            left: 0;
+            right: 0;
         }
         &.tall {
-            height: 100%;
-            margin: 0;
+            @media screen and (min-width: 800px) {
+                max-width: 67%;
+            }
         }
+
+        // Background Color
         &.light {
             border: 2px solid rgba(255, 255, 255, 0.25);
             background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px 3px rgba(0,0,0,.15);
         }
         &.dark {
             border: 2px solid rgba(0, 0, 0, 0.1);
             background-color: rgba(0, 0, 0, 0.5);
+            * {
+                color: white;
+                text-shadow: 0 2px 1px rgba(0,0,0,.25);
+            }
         }
 
         // Titles and Buttons (preformatted)

@@ -42,11 +42,17 @@ $button-disabled-color: #9F9F9F !default;
 .button-group {
     flex-basis: 100%;
     max-width: $container-width;
-    margin-top: 10px;
+    margin: 35px auto 0;
     &:not(.tight) {
         .button {
-            margin: 3px 2px;
-            &:first-child {
+            @media screen and (min-width: $small-screen-up) {
+                margin: 3px 2px;
+            }
+            @media screen and (max-width: $medium-screen) {
+                width: 80%;
+                margin: 3px 0;
+            }
+           &:first-child {
                 margin-left: 0px;
             }
             &:last-child {

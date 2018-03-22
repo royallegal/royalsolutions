@@ -24,30 +24,53 @@ html{
 .title-group {
     flex-basis: 100%;
     max-width: $container-width;
-    margin: 0;
-    p {
-        // Overrides
-        &.title,
-        &.subtitle,
-        &.h1,&.h2,&.h3,&.h4,&.h5,&.h6 {
-            margin: 0;
-            line-height: calc(100% + 8px);
-        }
-        &.title {
+    margin: 0 auto;
+    .title,
+    .subtitle,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin: 0;
+        text-transform: capitalize;
+        line-height: 1.2;
+    }
+
+    .title {
+        font-weight: 900;
+        letter-spacing: 1px;
+        @media screen and (max-width: $medium-screen) {
             font-size: 2rem;
-            font-weight: 900;
-            text-transform: capitalize;
-            letter-spacing: 1px;
         }
-        &.subtitle {
-            margin-top: 5px;
-            font-size: 1.5rem;
-            text-transform: capitalize;
-            letter-spacing: .5px;
+        @media screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
+            font-size: 2.25rem;
         }
-        // Description
-        margin-top: 15px;
-        font-size: 1.1rem;
+        @media screen and (min-width: $medium-screen-up) {
+            font-size: 2.5rem;
+        }
+    }
+
+    .subtitle {
+        margin-top: 12px;
+        letter-spacing: .5px;
+        @media screen and (max-width: $medium-screen) {
+            font-size: 1.33rem;
+        }
+        @media screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
+            font-size: 1.54rem;
+        }
+        @media screen and (min-width: $medium-screen-up) {
+            font-size: 1.75rem;
+        }
+    }
+
+    .description {
+        @media screen and (max-width: $medium-screen) {
+            font-size: 1rem;
+        }
+        @media screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
+            font-size: 1.1rem;
+        }
+        @media screen and (min-width: $medium-screen-up) {
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -77,26 +100,26 @@ $h_sizes: (
             font-weight: 900;
             text-transform: uppercase;
         }
-    }
+}
 
     // Responsive Headers
     @media only screen and (max-width: $medium-screen) {
         #{$h_name},
         .#{$h_name} {
-            font-size: (.7 * $h_size);
-        }
+font-size: (.7 * $h_size);
+}
     }
     @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
         #{$h_name},
         .#{$h_name} {
-            font-size: (.8 * $h_size);
-        }
+font-size: (.8 * $h_size);
+}
     }
     @media only screen and (min-width: $medium-screen-up) {
         #{$h_name},
         .#{$h_name} {
-            font-size: $h_size;
-        }
+font-size: $h_size;
+}
     }
 }
 

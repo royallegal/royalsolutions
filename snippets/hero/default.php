@@ -18,12 +18,12 @@
             <?php 
             // ---- TITLE GROUP ---- //
             if (in_array("title", $children)) {
-                include(locate_template('snippets/title-group.php'));
+                include(locate_template('snippets/page-builder/title-group.php'));
             }
 
             // ---- BUTTON GROUP ---- //
             if (in_array("button", $children)) {
-                include(locate_template('snippets/button-group.php'));
+                include(locate_template('snippets/page-builder/button-group.php'));
             }
 
             // ---- FORMS ---- //

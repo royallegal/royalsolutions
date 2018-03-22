@@ -18,6 +18,26 @@ body {
 main {
     position: relative;
 }
+.admin-bar {
+    main {
+        margin-top: 46px;
+        .hero-container,
+        .parallax-container {
+            margin-top: -46px;
+        }
+    }
+}
+@media screen and (max-width: '600px') {
+    .admin-bar {
+        main {
+            margin-top: 57px;
+            .hero-container,
+            .parallax-container {
+                margin-top: -57px;
+            }
+        }
+    }
+}
 
 
 // Footer
