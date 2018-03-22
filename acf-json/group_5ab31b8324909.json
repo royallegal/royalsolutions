@@ -1,0 +1,43 @@
+{
+    "key": "group_5ab31b8324909",
+    "title": "Navigation Menu Icon",
+    "fields": [
+        {
+            "key": "field_5ab31ba725bab",
+            "label": "icon",
+            "name": "icon",
+            "type": "text",
+            "instructions": "Write the name of whichever icon you want to use from the Materialize library. Example: \"announcement\" https:\/\/material.io\/icons\/",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "!=",
+                "value": "location\/footer-nav"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1521687662
+}

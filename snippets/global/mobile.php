@@ -19,90 +19,14 @@ $logout = esc_url(wc_logout_url(wc_get_page_permalink('myaccount')));
         </div>
     </li>
 
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">
-                    LLCs
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/product/series-llc">Series LLC</a></li>
-                        <li><a href="/product/traditional-llc">Traditional</a></li>
-                        <li><a href="/product/ira-owned-llc">IRA Owned</a></li>
-                        <li><a href="/product/assignment-of-interest">Assignment of Interest</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
+    <?php wp_nav_menu(array(
+        "theme_location" => "main-nav",
+        "menu_id" => "main-mobile-nav",
+        "menu_class"=> "",
+        'walker' => new Main_Mobile_Nav_Walker
+    )) ?>
 
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">
-                    Trusts
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/product/delaware-statutory-trust/">Delaware Statutory</a></li>
-                        <li><a href="/product/anonymous-land-trust">Anonymous Land</a></li>
-                        <li><a href="/product/ira-owned-trust">IRA Owned</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">
-                    Agreements
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/product/limited-partnership">Limited Partnership</a></li>
-                        <li><a href="/product/joint-venture">Joint Venture</a></li>
-                        <li><a href="/product/property-transfer">Property Transfer</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">
-                    Strategy
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="/product/family-office">Family Office</a></li>
-                        <li><a href="/product/estate-planning">Estate Planning</a></li>
-                        <li><a href="/product/hourly-consulting">Hourly Consulting</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-
-    <!-- <li><a href="/members/webinar">
-         <i class="material-icons left">videocam</i> Webinar
-         </a></li> -->
-    <li><a href="/blog">
-        <i class="material-icons left">bookmark</i>
-        Blog
-    </a></li>
-    <li><a href="/contact-us">
-        <i class="material-icons left">email</i>
-        Contact Us
-    </a></li>
+    <!--         
     <?php if (current_user_can('edit')) { ?>
         <li><a href="/quick-cart">
             <i class="material-icons left">shopping_cart</i>
@@ -129,5 +53,5 @@ $logout = esc_url(wc_logout_url(wc_get_page_permalink('myaccount')));
         <?php } else { ?>
             <a id="login" class="modal-trigger" href="#loginModal">Log In</a>
         <?php } ?>
-    </li>
+    </li> -->
 </ul>

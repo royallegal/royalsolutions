@@ -1,8 +1,3 @@
-<?php
-global $woocommerce;
-$items  = $woocommerce->cart->get_cart_contents_count();
-?>
-
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
@@ -26,40 +21,14 @@ $items  = $woocommerce->cart->get_cart_contents_count();
             )) ?>
 
             <!-- Right Menu -->
-            <?php
-            $user   = wp_get_current_user();
-            $first  = $user->user_firstname;
-            $logout = esc_url(wc_logout_url(wc_get_page_permalink('myaccount')));
-            ?>
-            <ul id="nav-right" class="float-right hide-on-med-and-down">
-                <?php if (current_user_can('edit_posts')) { ?>
-                    <li><a href="/quick-cart">
-                        <i class="material-icons left">shopping_cart</i>
-                        Cart (<span id="cart-count"><?php echo $items; ?></span>)
-                    </a></li>
-                <?php } ?>
-                <li id="user-account">
-                    <?php if (is_user_logged_in()) { ?>
-                        <a id="username" href="/my-account">
-                            <i class="material-icons left">person</i>
-                            <?php
-                            if (!empty($first)) {
-                                echo "Hi ".$first;
-                            } else {
-                                echo "My Account";
-                            }
-                            ?>
-                        </a>
-                        <form id="logout" action="logout" method="post">
-                            <?php wp_nonce_field( 'ajax-logout-nonce', 'logoutSecurity' ); ?>
-                            <button type="submit" name="submit">(logout)</button>
-                        </form> 
-                    <?php } else { ?>
-                        <a id="login" class="modal-trigger" href="#loginModal">Log In</a>
-                    <?php } ?>
-                </li>
-                <li><a id="consultation" class="blue to-blue ghost button" href="/consulting/consultation/">Consultation</a></li>
-            </ul>
+
+            <?php wp_nav_menu(array(
+                "theme_location" => "main-right-nav",
+                "menu_id" => "nav-right",
+                "menu_class" => "float-right hide-on-med-and-down",
+                'walker' => new Main_Right_Nav_Walker
+            ))?>
+            
         </div>
     </nav>
 </div>

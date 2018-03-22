@@ -26,7 +26,7 @@
     height: -moz-calc(100%); //Temporary Firefox Fix
     padding-bottom: 60px;
     background-color: $sidenav-bg-color;
-    z-index: 999;
+    z-index: 99999;
     overflow-y: auto;
     will-change: transform;
     backface-visibility: hidden;
@@ -136,6 +136,9 @@
             left: 0;
             z-index: -1;
         }
+        #sidebar-logo img {
+            max-width: 100%; 
+        }
 
         .circle, .name, .email {
             display: block;
@@ -171,7 +174,7 @@
     width: 10px;
     position: fixed;
     top: 0;
-    z-index: 998;
+    z-index: 99998;
 }
 
 
@@ -221,7 +224,6 @@
 .side-nav .collapsible-body {
     width: 100%;
     padding: 0;
-    padding-left: 14px;
 }
 
 
@@ -233,7 +235,7 @@
 
     height: 120vh;
     background-color: rgba(0,0,0,.5);
-    z-index: 997;
+    z-index: 99997;
 
     will-change: opacity;
 }
