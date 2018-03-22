@@ -56,6 +56,7 @@
                                 </a>
                             </div>
                             <?php get_template_part('snippets/loaders/form-status'); ?>
+                            <?php get_template_part('snippets/animations/loaders'); ?>
                         </div>
                     </form>
                 </div>

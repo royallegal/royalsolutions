@@ -48,6 +48,18 @@ function royal_login() {
     // ---- METHODS ---- //
     // Perform AJAX login on form submit
     $('form#login').on('submit', function(e) {
+        // Hide error and sucess message 
+        $('form#login .status .error, form#login .status .success').addClass('hide').hide();
+
+        // Fadeout the login button and forget link
+        $("form#login .status-swap").fadeOut(300);
+
+        // Display loading spinner
+        $("form#login .status .loading").delay(350).hide().removeClass('hide').fadeIn(300);
+
+        // Display text next to loading spinner 
+        $('form#login .status .loading .message').text("We're logging you in!");
+
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -61,12 +73,28 @@ function royal_login() {
                 'loginSecurity': $('form#login #loginSecurity').val()
             }
         }).done(function(data) {
-            $('form#login .success .message').text(data.message);
             if (data.loggedin == true) {
+                // Hide sucess message 
+                $('form#login .status .success').removeClass('hide').show().delay(5000).fadeOut(300);
+                $('form#login .status .success .message').text(data.message);
                 location.reload();
+            } else {
+                // Display the status div
+                $(".status-swap").delay(350).fadeIn(300);
+
+                // Hide error message 
+                $('form#login .status .error').removeClass('hide').show().delay(5000).fadeOut(300);
+                $('form#login .status .error .message').text(data.message);
             }
+        }).fail(function(data) {
+            // Hide error message 
+            $('form#login .status .error').removeClass('hide').show().delay(5000).fadeOut(300);
+            $('form#login .status .error .message').text(data.message);
+        }).always(function(data) {
+            // Hide spinner and logging in text
+            $(".status .loading").fadeOut(300);
         });
-    });
+    });  
 
     // Perform AJAX login on form submit
     $('form#passwordLost').on('submit', function(e) {

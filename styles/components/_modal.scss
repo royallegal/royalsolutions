@@ -2,6 +2,18 @@
     overflow: hidden;
     width: 90%;
     max-width: 800px;
+    .success {
+        background-color: #f0ffed;
+        text-align: center;
+        border: 1px solid #c1eeb9;
+        color: #a2d598;
+    }
+    .error {
+        background-color: #f9f2ed;
+        text-align: center;
+        border: 1px solid #f7dede;
+        color: #e5afa8;
+    }
     .row {
         display: flex;
         position: relative;
