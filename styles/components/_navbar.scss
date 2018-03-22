@@ -91,23 +91,8 @@ nav {
         #nav-left,
         #nav-right {
             li {
-                a {
+                > a, button {
                     color: white;
-                    opacity: .7;
-                    &:hover {
-                        color: white;
-                        opacity: 1;
-                    }
-                    &.active {
-                        background-color: $link-color;
-                        color: white;
-                    }
-                }
-                button {
-                    background: transparent;
-                    border: 0;
-                    font-size: 13px;
-                    font-weight: bold;
                     opacity: .7;
                     &:hover {
                         color: white;
@@ -215,14 +200,14 @@ nav {
 // ---- SERVICES ---- //
 .admin-bar {
     nav {
-        ul#services {
+        ul.dropdown-content {
             top: 77px !important;
         }
     }
 }
 
 nav {
-    ul#services {
+    ul.dropdown-content {
         display: none;
         position: fixed !important;
         top: 45px !important;
@@ -234,7 +219,6 @@ nav {
         &.active {
             display: flex;
         }
-
         .service-column {
             flex-basis: 20%;
             border-left: 1px solid #eee;
@@ -245,19 +229,19 @@ nav {
             &:last-child {
                 border-right: 0;
             }
-            &.recommendations .service-item:hover {
+            &:nth-child(1) .service-item:hover {
                 background-color: color("red", "base");
             }
-            &.llcs .service-item:hover {
+            &:nth-child(2) .service-item:hover {
                 background-color: color("blue", "base");
             }
-            &.trusts .service-item:hover {
+            &:nth-child(3) .service-item:hover {
                 background-color: color("brown", "base");
             }
-            &.agreements .service-item:hover {
+            &:nth-child(4) .service-item:hover {
                 background-color: color("green", "base");
             }
-            &.plans .service-item:hover {
+            &:nth-child(5) .service-item:hover {
                 background-color: color("purple", "base");
             }
 
@@ -277,7 +261,7 @@ nav {
                 a {
                     font-size: 12px;
                     font-weight: normal;
-                    color: black;
+                    color: black ;
                     line-height: 40px;
                 }
                 &:hover a {
@@ -379,6 +363,25 @@ nav {
             }
         }
 
+        button {
+            background: transparent;
+            border: 0;
+            font-weight: bold;
+            transition: background-color .3s;
+            font-size: 13px;
+            font-weight: 700;
+            color: $navbar-font-color;
+            letter-spacing: .33px;
+            display: block;
+            padding: 0 14px;
+            cursor: pointer;
+            &:hover {
+                color: $link-color;
+            }
+            &.active {
+                background-color: $link-color;
+            }
+        }
         // Menu Buttons
         a.button {
             margin-top: -2px;

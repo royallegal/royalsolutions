@@ -27,7 +27,7 @@
         <header>
             <!-- Nav -->
             <?php
-            $nav_style = wp_is_mobile() ? "mobile" : "full";
-            get_template_part('snippets/global/'.$nav_style);
+            get_template_part('snippets/global/full');
+            get_template_part('snippets/global/mobile');
             ?>
         </header>
