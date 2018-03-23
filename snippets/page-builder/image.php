@@ -1,39 +1,46 @@
 <?php
 /* IMAGE
- * Receives variables from ./page.php */
+ * Receives variables from /classes/page-builder.php */
+$hero = ($c["container"] == "hero") ? true : false;
+
+echo '<pre>';
+print_r($c);
+echo '</pre>';
 ?>
 
 
-<div class="<?= $panel_classes.' '.$cta_position.' '.$container;?>-container flex panel"
-     style="height: <?= $panel_height;?>vh;">
+<div class="<?= $c["layout"]["classes"]." ".$c["cta"]["position"]." ".$c["container"];?>-container flex wrap panel"
+     style="height: <?= $c["layout"]["height"];?>vh;">
 
-    <div class="<?= $container; ?>"
-         style="<?= (! $parallax) ? 'background-image: url('.$image_src.');' : ''; ?>">
+    <div class="<?= $c["container"]; ?>"
+         style="<?= ($hero) ? 'background-image: url('.$c["image"]["url"].');' : ''; ?>">
 
-        <?php if ($parallax) : ?>
-            <img alt="<?= $image_alt; ?>" src="<?= $image_src; ?>"/>
+        <?php // if parallax
+        if (!$hero) : ?>
+            <img alt="<?= $c["image"]["alt"]; ?>" src="<?= $c["image"]["url"]; ?>"/>
         <?php endif; ?>
 
-        <?php if ($has_color) : ?>
-            <div class="<?= $colorize; ?> mask trans-70"
-                 style="background-color:<?= $colorize; ?>;"></div>
+        <?php if (!empty($c["color"]["color"] && $c["color"]["source"] == "theme")) : ?>
+            <div class="<?= $c["color"]["color"]?> trans-70 mask"></div>
+        <?php elseif (!empty($c["color"]["color"] && $c["color"]["source"] == "custom")):?>
+            <div class="trans-70 mask" style="background-color:<?=$c["color"]["color"];?>;"></div>
         <?php endif; ?>
     </div>
 
     <?php if ($has_cta) : ?>
         <div class="<?= $cta_classes; ?> cta-group">
-        <?php
-        if ($titles) {
-            include(locate_template('snippets/page-builder/title-group.php'));
-        }
-        if ($buttons) {
-            include(locate_template('snippets/page-builder/button-group.php'));
-        }
-        /* elseif ($form) {
-         * }
-         * elseif ($promotion) {
-         * }*/
-        ?>
-    </div>
+            <?php
+            if ($titles) {
+                include(locate_template('snippets/page-builder/title-group.php'));
+            }
+            if ($buttons) {
+                include(locate_template('snippets/page-builder/button-group.php'));
+            }
+            /* elseif ($form) {
+             * }
+             * elseif ($promotion) {
+             * }*/
+            ?>
+        </div>
     <?php endif; ?>
 </div>

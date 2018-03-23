@@ -1,6 +1,6 @@
 <?php
 /* TITLE GROUP
- * Receives variables from ./page.php */
+ * Receives variables from /classes/page-builder.php */
 ?>
 
 
