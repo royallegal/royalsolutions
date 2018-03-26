@@ -1,4 +1,28 @@
 function page_builder() {
+    /* $('[id^="#modal"]').modal();
+
+     * $('.modal-trigger').click(function() {
+     *     console.log('click');
+     *     $('[id^="#modal"]').modal('open');
+     * });*/
+
+    $('#test').modal();
+
+    /* $('#test').click(function() {
+     *     
+     * });*/
+
+    /* var modals = $('[id^="#modal-"]');
+     * $.each(modals, function(i,v) {
+     *     $(v).modal({
+     *         ready: function(modal) {
+     *             console.log('ready');
+     *         },
+     *         complete: function(modal) {
+     *             console.log('complete');
+     *         }
+     *     });
+     * });*/
 
     // Modals
     // I haven't got this working yet

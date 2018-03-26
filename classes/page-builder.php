@@ -140,7 +140,7 @@ class PageBuilder {
             // Links vs modals
             if ($btn["button_behavior"] == "modal") {
                 $title  = $btn["button_title"];
-                $target = '#modal-'.substr(md5(microtime()),rand(0,26),10);
+                $target = 'modal'.substr(md5(microtime()),rand(0,26),10);
             }
             else {
                 $title  = $btn["button_link"]["title"];
@@ -169,7 +169,7 @@ class PageBuilder {
 
             // Values for each button
             $button = array(
-                "type"    => $btn["button_behaviour"],
+                "type"    => $btn["button_behavior"],
                 "title"   => $title,
                 "target"  => $target,
                 "classes" => $size." ".$colors." ".$styles." ".$pos,

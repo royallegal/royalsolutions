@@ -1,25 +1,26 @@
 <?php
 /* TITLE GROUP
  * Receives variables from /classes/page-builder.php */
+$t = $c["title"];
 ?>
 
 
 <div class="title-group">
-    <?php if ($title) { ?>
-        <<?= $title_elem; ?> class="title <?= $title_size; ?>">
-        <?php echo $title ?>
-        </<?= $title_elem; ?>>
+    <?php if ($t["title"]) { ?>
+        <<?= $t["title_element"]; ?> class="title <?= $t["title_size"]; ?>">
+        <?php echo trim($t["title"]) ?>
+        </<?= $t["title_element"]; ?>>
     <?php } ?>
 
-    <?php if ($subtitle) { ?>
-        <<?= $subtitle_elem; ?> class="subtitle <?= $subtitle_size; ?>">
-        <?php echo $subtitle ?>
-        </<?= $subtitle_elem; ?>>
+    <?php if ($t["subtitle"]) { ?>
+        <<?= $t["subtitle_element"]; ?> class="subtitle <?= $t["subtitle_size"]; ?>">
+        <?php echo trim($t["subtitle"]) ?>
+        </<?= $t["subtitle_element"]; ?>>
     <?php } ?>
 
-    <?php if ($description) {
+    <?php if ($t["description"]) {
         echo '<p class="description">';
-        echo $description;
+        echo trim($t["description"]);
         echo '</p>';
     } ?>
 </div>

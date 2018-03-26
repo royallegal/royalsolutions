@@ -5,7 +5,7 @@
 
 <div class="button-group">
     <?php foreach ($c["buttons"] as $button) : ?>
-        <a href="<?= $button["target"]; ?>"
+        <a href="#<?= $button["target"]; ?>"
            class="<?= $button["classes"]; ?> <?= ($button["type"] == "modal") ? "modal-trigger" : ""?> button">
             <?= $button["icon"]; ?>
             <?= trim($button["title"]); ?>
@@ -23,6 +23,8 @@
                 ?>
             </div>
         <?php endif; ?>
-
     <?php endforeach; ?>
+
+    <a class="red mix button" href="#test">Testing</a>
+    <div id="test" class="modal">I'm a test</div>
 </div>
