@@ -44,9 +44,6 @@ Status.init = function(elem, options) {
     }
     self.elem = elem || '';
     self.options = $.extend({}, _defaults, options);
-
-    /* console.log(self.elem);
-     * console.log(self.options);*/
 }
 
 // Init Status prototype
@@ -57,7 +54,3 @@ $.fn.status = function(methodOrOptions) {
     Status(this, arguments[0]);
     return this;
 }
-
-
-// Super awesome!!!
-$('form#login .form-status').status();

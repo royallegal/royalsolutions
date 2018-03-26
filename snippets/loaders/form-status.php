@@ -1,4 +1,4 @@
-<div class="status">
+<div class="hide status">
     <div class="hide loading">
         <?php get_template_part('snippets/loaders/spinner'); ?>
         <p class="message">Error message goes here</p>

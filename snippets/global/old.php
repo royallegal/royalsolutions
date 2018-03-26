@@ -1,24 +1,22 @@
-<?php if (! is_user_logged_in()) { ?>
-    <div id="loginModal" class="modal">
-        <div class="row">
-
-            <!-- Floating Splash -->
-            <div class="splash">
-                <div class="image" style="background-image:url(http://res.cloudinary.com/rls/image/upload/v1522083322/austin.svg)"></div>
-                <div class="logo">
-                    <img alt="Royal Legal Solutions" src="http://res.cloudinary.com/rls/image/upload/v1522084553/Royal_Legal_Solutions-Icon.svg"/>
-                    <p>Royal Legal Solutions</p>
-                </div>
+<div id="loginModal" class="modal">
+    <div class="row">
+        <div class="splash">
+            <div class="logo">
+                <img alt="Royal Legal Solutions" src="http://res.cloudinary.com/rls/image/upload/v1522084553/Royal_Legal_Solutions-Icon.svg"/>
+                <p>Royal Legal Solutions</p>
             </div>
+            <div class="image" style="background-image:url(http://res.cloudinary.com/rls/image/upload/v1522083322/austin.svg)"></div>
+        </div>
 
-            <!-- Left Side -->
-            <div class="col s12 m6">
-                <!-- Lost Password -->
-                <form id="passwordLost" class="toggle-login" action="passwordLost" method="post">
+        <div class="col s12 m6">
+            <!-- LOST PASSWORD -->
+            <div class="lost section">
+                <form id="passwordLost" action="passwordLost" method="post" style="width: 100%">
                     <div class="title-group">
                         <p class="h3">Can't Sign In?</p>
                         <p>No worries, we'll send you a new password via email</p>
                     </div>
+                    <p class="status"> </p>
                     <div class="input-field">
                         <input id="lostUsername" type="text" name="email">
                         <label for="lostUsername">Username</label>
@@ -30,11 +28,11 @@
                     </div>
                 </form>
             </div>
+        </div>
 
-
-            <!-- Right Side -->
-            <div class="col s12 m6">
-                <!-- Login -->
+        <div class="col s12 m6">
+            <!-- LOGIN -->
+            <div class="login section">
                 <form id="login" action="login" method="post">
                     <div class="title-group">
                         <p class="h3">Howdy Stranger</p>
@@ -43,11 +41,11 @@
                     <div class="input-field">
                         <input id="loginUsername" type="text" name="username">
                         <label for="loginUsername">Username</label>
-                    </div>
+                    </div> 
                     <div class="input-field">
                         <input id="loginPassword" type="password" name="password">
                         <label for="loginPassword">Password</label>
-                    </div>
+                    </div> 
 
                     <p id="rememberMe">
                         <input type="checkbox" id="loginRemember" />
@@ -63,12 +61,14 @@
                             </a>
                         </div>
                         <?php get_template_part('snippets/loaders/form-status'); ?>
+                        <?php get_template_part('snippets/animations/loaders'); ?>
                     </div>
                 </form>
+            </div>
 
-
-                <!-- Reset -->
-                <div class="hide toggle-login reset">
+            <div class="reset col s12 m6">
+                <!-- PASSWORD RESET -->
+                <div class="section">
                     <?php
                     $errors = new WP_Error();
                     $user = check_password_reset_key($_GET['key'], $_GET['login']);
@@ -81,21 +81,28 @@
                     }
 
                     // display error message
-                    if ($errors->get_error_code()) { ?>
-                        <div id="resetError" class="hide">
-                            <div class="title-group">
-                                <p class="h3">Oops, this isn't right!</p>
-                                <p class="center-align">
-                                    <?php echo $errors->get_error_message($errors->get_error_code()); ?>
-                                </p>
-                            </div>
-                            <div class="button-group">
-                                <a href="#" class="blue to-blue button" data-goto-login>Login</a>
-                                <a id="lost-link" class="gray to-blue button" href="#lost-password" data-goto-lost>Reset</a>
-                            </div>
+                    if ($errors->get_error_code()) {
+                    ?>
+                        <div class="title-group">
+                            <p class="h3">Oops, this isn't right!</p>
+                            <p class="center-align">
+                                <?php echo $errors->get_error_message($errors->get_error_code()); ?>
+                            </p>
+                        </div>
+                        <div class="button-group">
+                            <a href="#" class="blue to-blue button" data-goto-login>Login</a>
+                            <a id="lost-link"
+                               class="gray to-blue button"
+                               href="#lost-password"
+                               data-goto-lost>
+                                Reset
+                            </a>
                         </div>
 
-                    <?php } else { ?>
+                    <?php
+                    } else {
+                    ?>
+
                         <form id="passwordReset" method="post" autocomplete="off">
                             <div class="title-group">
                                 <h3>Reset your password</h3>
@@ -136,11 +143,16 @@
                                 // @param WP_User $user User object of the user whose password is being reset
                                 do_action('resetpass_form', $user);
                                 ?>
-                                <input class="button blue" type="submit" value="Reset Password" name="submit">
+                                <input class="button blue"
+                                       type="submit"
+                                       value="Reset Password"
+                                       name="submit">
+                                
                         </form>
                     <?php } ?>
                 </div>
             </div>
+
         </div>
     </div>
-<?php } ?>
+</div>

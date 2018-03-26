@@ -1,21 +1,25 @@
 .status {
     margin-top: 15px;
-    .loading,
     .success,
     .error {
+        padding: 5px;
+    }
+    .loading {
         display: flex;
+        align-items: center;
+        justify-content: flex-start;
         .message {
-            margin-left: 12px;
+            margin-left: 8px;
         }
     }
-
-    .loading {
-        
-    }
     .success {
-        
+        border: 1px solid #c1eeb9;
+        background-color: #f0ffed;
+        color: #a2d598;
     }
     .error {
-        
+        border: 1px solid #f7dede;
+        background-color: #f9f2ed;
+        color: #e5afa8;
     }
 }

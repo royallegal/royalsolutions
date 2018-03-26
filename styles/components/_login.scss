@@ -1,0 +1,302 @@
+#loginModal {
+    overflow: hidden;
+    // Desktop display
+    @media screen and (min-height: 601px) {
+        width: 90vw;
+        max-width: 800px;
+    }
+    // Mobile phone display
+    @media screen and (max-height: 600px) and (orientation: landscape) {
+        top: 0 !important;
+        height: 100vh;
+        max-height: 100%;
+        width: 100vw;
+    }
+    @media #{$small-and-down} and (orientation: portrait) {
+        top: 0 !important;
+        height: 100vh;
+        max-height: 100%;
+        width: 100vw;
+    }
+
+    // Layout
+    .row {
+        display: flex !important;
+        align-items: center;
+        margin: 0;
+        @media #{$small-and-down} {
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+        @media #{$medium-and-up} {
+            min-height: 300px;
+        }
+
+        .col {
+            padding: 0;
+            @media #{$small-and-down} and (orientation: landscape) {
+                overflow-y: auto;
+                height: 100vh;
+                width: 50%;
+            }
+
+            #login,
+            #passwordLost,
+            .reset {
+                padding: 25px;
+            }
+
+            .title-group {
+                margin-bottom: 40px;
+                p {
+                    text-align: center;
+                }
+                p:not(.h3) {
+                    line-height: 1.33;
+                }
+            }
+            .form-status,
+            .button-group {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+
+// ---- COMPONENTS ---- //
+#loginModal {
+    // Mobile hide class
+    @media screen and (max-width: 414px) {
+        .toggle-login {
+            display: none !important;
+        }
+    }
+
+
+    // Splash Slider
+    .splash {
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        background-color: white;
+        transition: all 500ms cubic-bezier(0.7, 0.3, 0.1, 0.9);
+        // Mobile display
+        @media screen and (min-width: 415px) {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            &.shift {
+                transform: translateX(100%);
+            }
+        }
+
+        .image {
+            width: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            @media screen and (max-width: 414px) {
+                height: 125px;
+            }
+            @media screen and (min-width: 415px) {
+                height: 200px;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin: 15px auto 0;
+            img {
+                height: 40px;
+                width: 40px;
+            }
+            p {
+                margin: 0 0 0 8px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #4077a0;
+            }
+        }
+    }
+
+    // Login
+    #login {
+        #rememberMe {
+            margin-top: -15px;
+        }
+        #lost-link {
+            white-space: nowrap;
+        }
+    }
+
+    // Lost
+    #passwordLost {
+        .button-group {
+            a {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    // Reset
+    .reset {
+        #resetError {
+            text-align: center;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// #loginModal {
+//     overflow: hidden;
+//     width: 90%;
+//     max-width: 800px;
+//     @media screen and (max-height: 600px) and (orientation: landscape) {
+//         display: flex !important;
+//         align-items: center;
+//         top: 0 !important;
+//         height: 100%;
+//         max-height: 100%;
+//         width: 100%;
+//         max-width: 100%;
+//     }
+
+//     .row {
+//         display: flex;
+//         position: relative;
+//         margin: 0;
+
+//         // SPLASH IMAGE
+//         .splash {
+//             z-index: 2;
+//             box-sizing: content-box;
+//             position: absolute;
+//             top: 0;
+//             bottom: 0;
+//             left: 0;
+//             width: 50%;
+//             background-color: white;
+//             transition: all 500ms cubic-bezier(0.7, 0.3, 0.1, 0.9);
+//             &.shift {
+//                 transform: translateX(100%);
+//             }
+
+//             .logo {
+//                 z-index: 1;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 position: absolute;
+//                 bottom: 25px;
+//                 left: 0;
+//                 right: 0;
+//                 text-align: center;
+//                 img {
+//                     height: 40px;
+//                     width: 40px;
+//                 }
+//                 p {
+//                     margin: 0 0 0 8px;
+//                     font-size: 1.5rem;
+//                     font-weight: 600;
+//                     color: #4077a0;
+//                 }
+//             }
+
+//             .image {
+//                 position: absolute;
+//                 top: 0;
+//                 bottom: 50px;
+//                 left: 0;
+//                 right: 0;
+//                 margin: 50px;
+//                 background-size: contain;
+//                 background-position: center;
+//                 background-repeat: no-repeat;
+//             }
+
+//             @media #{$small-and-down} {
+//                 height: 20vh;
+//                 .image {
+//                     background-position: top center;
+//                 }
+//             }
+//             @media #{$medium-and-up} {
+//                 min-height: 400px;
+//                 .image {
+//                     background-position: bottom center;
+//                 }
+//             }
+
+//         }
+
+//         // FORMS
+//         .col {
+//             display: flex;
+//             align-items: center;
+//             min-height: 412px;
+//             padding: 0;
+//             // Form Components
+//             .section {
+//                 flex-shrink: 0;
+//                 text-align: center;
+//                 width: 100%;
+//                 padding: 25px;
+//             }
+//             .title-group {
+//                 margin-bottom: 50px;
+//                 p {
+//                     text-align: center;
+//                     margin: 0;
+//                     line-height: 1.5;
+//                 }
+//             }
+//             .button-group {
+//                 margin-top: 15px;
+//             }
+
+//             // Form Content
+//             .login {
+//                 z-index: 1;
+//                 background-color: white;
+//                 #rememberMe {
+//                     margin-top: -8px;
+//                     line-height: 1;
+//                     label {
+//                         padding-left: 25px;
+//                     }
+//                 }
+//                 #lost-link {
+//                     white-space: nowrap;
+//                 }
+//             }
+//             .lost {
+
+//             }
+//             .reset {
+//                 position: absolute;
+//                 top: 0;
+//                 bottom: 0;
+//                 right: 0;
+//             }
+//         }
+//     }
+// }

@@ -45,9 +45,10 @@ html{
             text-transform: capitalize;
             letter-spacing: .5px;
         }
-        // Description
-        margin-top: 15px;
-        font-size: 1.1rem;
+        &.description {
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
     }
 }
 
@@ -83,13 +84,13 @@ $h_sizes: (
     @media only screen and (max-width: $medium-screen) {
         #{$h_name},
         .#{$h_name} {
-            font-size: (.7 * $h_size);
+            font-size: (.8 * $h_size);
         }
     }
     @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
         #{$h_name},
         .#{$h_name} {
-            font-size: (.8 * $h_size);
+            font-size: (.9 * $h_size);
         }
     }
     @media only screen and (min-width: $medium-screen-up) {

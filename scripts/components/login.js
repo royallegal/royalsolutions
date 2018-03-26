@@ -13,16 +13,29 @@ function royal_login() {
         }
     });
 
+    // Form status
+    /* $('form#login .form-status').status();*/
+
 
     // ---- CONTROLS ---- //
     // Transitions to login form
     $('[data-goto-login]').on('click', function() {
+        // Desktop animation
         $('#loginModal .splash').removeClass('shift');
+        // Mobile portrait animation
+        $('#loginModal #login').removeClass('toggle-login');
+        $('#loginModal #passwordLost').addClass('toggle-login');
+        $('#loginModal .reset').addClass('toggle-login');
     })
 
     // Transition to password recovery form
     $('[data-goto-lost]').on('click', function() {
+        // Desktop animation
         $('#loginModal .splash').addClass('shift');
+        // Mobile portrait animation
+        $('#loginModal #login').addClass('toggle-login');
+        $('#loginModal #passwordLost').removeClass('toggle-login');
+        $('#loginModal .reset').addClass('toggle-login');
     })
 
     // Auto-opens modal if user is coming via a reset link
