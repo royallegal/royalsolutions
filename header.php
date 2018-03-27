@@ -11,7 +11,10 @@
               rel="apple-touch-icon-precomposed">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        <?php include("snippets/global/critical-css.php") ?>
+    </style>
 
         <?php wp_head(); ?>
     </head>
@@ -28,6 +31,7 @@
             <!-- Nav -->
             <?php
             $nav_style = wp_is_mobile() ? "mobile" : "full";
-            get_template_part('snippets/global/'.$nav_style);
+            get_template_part('snippets/global/full');
+            get_template_part('snippets/global/mobile');
             ?>
         </header>
