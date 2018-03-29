@@ -11,20 +11,18 @@
             <?= trim($button["title"]); ?>
         </a>
 
-        <?php if ($button["type"] == "modal") : ?>
-            <div id="<?= $button["target"]; ?>" class="modal">
-                <?php if ($iframe) : ?>
-                    <div class="video-container">
-                        <?php echo $iframe; ?>
+        <?php
+        $modal = $button["modal"];
+        if ($button["type"] == "modal" && !empty($modal)) :
+        ?>
+            <div id="<?= $button["target"]; ?>"
+                 class="modal">
+                <?php if ($modal["embed"]) : ?>
+                    <div class="video-container <?= $modal["auto"].' '.$modal["brand"]; ?>">
+                        <?php echo $modal["embed"]; ?>
                     </div>
-                <?php
-                elseif ($video) : echo $video;
-                endif;
-                ?>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
     <?php endforeach; ?>
-
-    <a class="red mix button" href="#test">Testing</a>
-    <div id="test" class="modal">I'm a test</div>
 </div>

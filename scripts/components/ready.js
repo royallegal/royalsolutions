@@ -1,6 +1,7 @@
 $(document).ready(function() {
     'use strict';
 
+
     // ---- GLOBAL ---- //
     royal_menus();
     royal_login();

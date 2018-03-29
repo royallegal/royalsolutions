@@ -1,12 +1,4 @@
 function royal_modals() {
-
-    function autoplay(video) {
-        video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-    }
-    function autostop(video) {
-        video.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-    }
-
     // Blog Videos
     if ($('#feed').length > 0) {
         $('.modal').modal({

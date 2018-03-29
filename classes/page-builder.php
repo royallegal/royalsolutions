@@ -5,12 +5,14 @@ class PageBuilder {
         // Returns component name (ie "text")
         $this->name = str_replace("component_", "", get_row_layout());
         $this->options = array(
-            "has_cta"       => false,
-            "has_title"     => false,
-            "has_buttons"   => false,
-            "has_form"      => false,
-            "has_promotion" => false,
-            "has_container" => "hero"
+            "cta"       => false,
+            "title"     => false,
+            "buttons"   => false,
+            "video"     => false,
+            "modal"     => false,
+            "form"      => false,
+            "promotion" => false,
+            "container" => "hero"
         );
 
         // Returns component
@@ -39,21 +41,21 @@ class PageBuilder {
 
                 // Checks for optional cta content
                 if ($option == "cta") {
-                    $this->options["has_cta"] = true;
+                    $this->options["cta"] = true;
                     
                     // Updates options array with selected sub components
                     foreach (get_sub_field("cta")["cta_content"] as $option) {
                         if ($option == "title_group") {
-                            $this->options["has_title"] = true;
+                            $this->options["title"] = true;
                         }
                         elseif ($option == "button_group") {
-                            $this->options["has_buttons"] = true;
+                            $this->options["buttons"] = true;
                         }
                         elseif ($option == "form_group") {
-                            $this->options["has_form"] = true;
+                            $this->options["form"] = true;
                         }
                         elseif ($option == "promotion_group") {
-                            $this->options["has_promotion"] = true;
+                            $this->options["promotion"] = true;
                         }
                     }
                 }
@@ -97,7 +99,7 @@ class PageBuilder {
 
 
     function get_color() {
-        if (get_sub_field("has_color")) {
+        if (get_sub_field("color")) {
             $src = get_sub_field($this->name."_color");
             // Theme colors vs custom colors
             if ($src["color_source"] == "theme") {
@@ -134,13 +136,14 @@ class PageBuilder {
         // Gets global size
         $size = $this->unique($src["button_size"]);
 
-        $btns = $src["button"];
+        $btns    = $src["button"];
         $buttons = array();
         foreach ($btns as $btn) {
             // Links vs modals
             if ($btn["button_behavior"] == "modal") {
                 $title  = $btn["button_title"];
                 $target = 'modal'.substr(md5(microtime()),rand(0,26),10);
+                $modal  = $this->get_modal($btn["button_modal"]);
             }
             else {
                 $title  = $btn["button_link"]["title"];
@@ -174,10 +177,43 @@ class PageBuilder {
                 "target"  => $target,
                 "classes" => $size." ".$colors." ".$styles." ".$pos,
                 "icon"    => $icon,
+                "modal"   => $modal
             );
             array_push($buttons, $button);
         }
         return $buttons;
+    }
+
+
+    function get_modal($m) {
+        $type = $m["modal_type"];
+        if ($type == "video") {
+            $src   = $m["video_source"];
+
+            // Retrieves video HTML
+            if ($src == "youtube" || $src == "vimeo") {
+                $embed = $m["video_".$src];
+            }
+            elseif ($src == "upload") { }
+
+            foreach ($m["video_settings"] as $setting) {
+                if ($setting == "autoplay") {
+                    $auto = "autoplay";
+                }
+                elseif ($setting == "branding") {
+                    $brand = "remove-branding";
+                }
+                /* elseif ($setting == "color") {
+                 *     
+                 * }*/
+            }
+        }
+        $modal = array(
+            "embed" => $embed,
+            "auto"  => $auto,
+            "brand" => $brand
+        );
+        return $modal;
     }
 
 
@@ -197,7 +233,7 @@ class PageBuilder {
     function get_image() {
         $this->get_options();
         $image = array(
-            "container" => $this->options["has_container"],
+            "container" => $this->options["container"],
             "layout"    => $this->get_layout(),
             "color"     => $this->get_color(),
             "image"     => get_sub_field("image"),
