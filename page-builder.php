@@ -10,31 +10,42 @@ include(plugin_dir_path(__FILE__).'classes/page-builder.php');
     <?php
     the_content();
 
+    // This is used for JavaScript helper functions (see note below)
     if (have_rows('component')) {
-        $components = array();
+        $components = array(
+            "image"     => "",
+            "video"     => "",
+            "form"      => "",
+            "promotion" => "",
+            "modal"     => "",
+            "cta"       => "",
+            "title"     => "",
+            "buttons"   => "",
+            "container" => "hero"
+        );
+
         while (have_rows('component')) {
             the_row();
             $pb = new PageBuilder;
-
             // Adds info to component array
-            array_push($components, $pb->name);
-            foreach ($pb->options as $option=>$bool) {
-                if ($option == "has_container") {
-                    array_push($components, $bool);
+            foreach ($pb->options as $option=>$val) {
+                if ($option == "container") {
+                    if ($val == "parallax") {
+                        $components[$option] = "parallax";
+                    }
                 }
                 else {
-                    array_push($components, $option);
+                    $components[$option] = $option;
                 }
             }
-
-            echo '<pre>';
-            print_r($components);
-            echo '</pre>';
         }
     }
-    
+
+    // PB-COMPONENTS
+    // This contains classes of active components
+    // It's used to determine which Materialize JS functions to run
     ?>
-    <div id="pb-components" class="<?= implode(" ", $components); ?>"></div>
+    <div id="pb-components" class="hide <?= implode(" ", $components); ?>"></div>
 </main>
 
 

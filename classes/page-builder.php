@@ -99,8 +99,9 @@ class PageBuilder {
 
 
     function get_color() {
-        if (get_sub_field("color")) {
-            $src = get_sub_field($this->name."_color");
+        $color = $this->name."_color";
+        if (get_sub_field($color)) {
+            $src = get_sub_field($color);
             // Theme colors vs custom colors
             if ($src["color_source"] == "theme") {
                 $col = $src["color"]." ".$this->unique($src["color_variant"]);
@@ -243,6 +244,11 @@ class PageBuilder {
             "form"      => $this->get_form(),
             "promotion" => $this->get_promotion()
         );
+
+        /* echo '<pre>';
+         * print_r($image);
+         * echo '</pre>';*/
+
         return $image;
     }
 

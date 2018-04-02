@@ -5,22 +5,27 @@ function page_builder() {
         $('.remove-branding').find('iframe').get(0).src += "&rel=0&showinfo=0";
     }
 
-    $('.parallax').parallax();
-
-    // Initiates modals
-    $('.modal').modal({
-        ready: function(modal) {
-            var video = $(modal).find('iframe').get(0);
-            if (modal.find('.autoplay')) {
-                autoplay(video);
+    // INIT MATERIALIZE FUNCTIONS
+    // Modals
+    if ($('.modal')) {
+        $('.modal').modal({
+            ready: function(modal) {
+                var video = $(modal).find('iframe').get(0);
+                if (modal.find('.autoplay')) {
+                    autoplay(video);
+                }
+            },
+            complete: function(modal) {
+                var video = $(modal).find('iframe').get(0);
+                autostop(video);
             }
-        },
-        complete: function(modal) {
-            var video = $(modal).find('iframe').get(0);
-            autostop(video);
-        }
-    });
+        });
+    }
 
+    // Parallax
+    if ($('.parallax')) {
+        $('.parallax').parallax();
+    }
 
     // Newsletter
     /* $('[data-newsletter-form]').each(function(index, form){
